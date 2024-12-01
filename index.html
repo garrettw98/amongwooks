@@ -30,15 +30,25 @@
         /* Header Styles */
         header {
             height: 100vh;
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
                         url('BI.png') center/cover;
             display: flex;
-            flex-direction: column;
             justify-content: center;
             align-items: center;
-            text-align: center;
-            color: white;
             padding: 2rem;
+        }
+
+        .header-content {
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(8px);
+            color: #E9C46A;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            max-width: 800px;
+            width: 90%;
+            margin: 0 auto;
         }
 
         h1 {
@@ -59,6 +69,7 @@
             gap: 2rem;
             margin: 2rem 0;
             animation: fadeIn 1s ease;
+            color: #E9C46A;
         }
 
         .countdown-item {
@@ -68,6 +79,8 @@
         .countdown-number {
             font-size: 2.5rem;
             font-weight: bold;
+            color: var(--secondary-color);
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
         }
 
         .countdown-label {
@@ -79,16 +92,19 @@
         .ticket-button {
             padding: 1rem 3rem;
             font-size: 1.2rem;
-            background-color: var(--primary-color);
-            color: white;
+            background-color: var(--secondary-color);
+            color: var(--text-color);
             border: none;
             border-radius: 30px;
             cursor: pointer;
             transition: transform 0.3s ease;
             animation: fadeInUp 1.5s ease;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         }
 
         .ticket-button:hover {
+            background-color: #F4A261;
             transform: scale(1.05);
         }
 
@@ -126,6 +142,7 @@
         .lineup {
             padding: 4rem 2rem;
             text-align: center;
+            background-color: var(--background-color);
         }
 
         .lineup-grid {
@@ -142,6 +159,7 @@
             border-radius: 10px;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
             transition: transform 0.3s ease;
+            border-left: 4px solid var(--primary-color);
         }
 
         .artist-card:hover {
@@ -150,7 +168,7 @@
 
         /* Information Section */
         .information {
-            background-color: white;
+            background-color: var(--background-color);
             padding: 4rem 2rem;
         }
 
@@ -164,12 +182,14 @@
         .info-card {
             padding: 2rem;
             border-radius: 10px;
-            background-color: var(--background-color);
+            background-color: white;
+            border-left: 4px solid var(--primary-color);
         }
 
         /* Media Section */
         .media {
             padding: 4rem 2rem;
+            background-color: var(--background-color);
         }
 
         .media-grid {
@@ -219,6 +239,7 @@
         }
 
         .social-icons a:hover {
+            color: var(--secondary-color);
             transform: scale(1.2);
         }
 
@@ -294,31 +315,33 @@
 <body>
     <!-- Header Section -->
     <header>
-        <h1>Among Wooks 2025</h1>
-        <p class="date">July 10-14, 2025</p>
-        <p class="location">Blue Mountain Event Center</p>
-        
-        <!-- Countdown Timer -->
-        <div class="countdown">
-            <div class="countdown-item">
-                <div class="countdown-number" id="days">000</div>
-                <div class="countdown-label">Days</div>
+        <div class="header-content">
+            <h1>Among Wooks 2025</h1>
+            <p class="date">July 10-14, 2025</p>
+            <p class="location">Blue Mountain Event Center</p>
+            
+            <!-- Countdown Timer -->
+            <div class="countdown">
+                <div class="countdown-item">
+                    <div class="countdown-number" id="days">000</div>
+                    <div class="countdown-label">Days</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-number" id="hours">00</div>
+                    <div class="countdown-label">Hours</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-number" id="minutes">00</div>
+                    <div class="countdown-label">Minutes</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-number" id="seconds">00</div>
+                    <div class="countdown-label">Seconds</div>
+                </div>
             </div>
-            <div class="countdown-item">
-                <div class="countdown-number" id="hours">00</div>
-                <div class="countdown-label">Hours</div>
-            </div>
-            <div class="countdown-item">
-                <div class="countdown-number" id="minutes">00</div>
-                <div class="countdown-label">Minutes</div>
-            </div>
-            <div class="countdown-item">
-                <div class="countdown-number" id="seconds">00</div>
-                <div class="countdown-label">Seconds</div>
-            </div>
-        </div>
 
-        <button class="ticket-button" onclick="openModal()">TICKETS</button>
+            <button class="ticket-button" onclick="openModal()">TICKETS</button>
+        </div>
     </header>
 
     <!-- Tickets Modal -->
